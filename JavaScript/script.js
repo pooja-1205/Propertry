@@ -76,44 +76,46 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
   });
 });
 
-// Contact form submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// Contact Form Submission → Backend API
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const mobile = document.getElementById("mobile").value;
-  const message = document.getElementById("message").value;
+    // Collect form data
+    const data = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("mobile").value.trim(),
+        message: document.getElementById("message").value.trim(),
+    };
 
-  // Validation
-  if (!name || !email || !mobile || !message) {
-    alert("⚠️ Please fill in all fields.");
-    return;
-  }
+    // Simple validation
+    if (!data.name || !data.email || !data.phone || !data.message) {
+        alert("⚠️ Please fill all fields.");
+        return;
+    }
 
-  // EmailJS send
-  emailjs
-    .send(
-      "service_lmxixd5", // Your Service ID
-      "template_8swjnix", // Your Template ID
-      {
-        from_name: name,
-        from_email: email,
-        phone: mobile,
-        message: message,
-      }
-    )
-    .then(
-      function (response) {
-        alert("✅ Message sent successfully! We'll contact you soon.");
-        document.getElementById("contactForm").reset();
-      },
-      function (error) {
-        alert("❌ Failed to send message. Try again later.");
-        console.error("EmailJS error:", error);
-      }
-    );
+    try {
+        // Send data to backend API
+        const res = await fetch("http://localhost:5000/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            alert("✅ Message sent successfully!");
+            document.getElementById("contactForm").reset();
+        } else {
+            alert("❌ Failed to send message. Please try again!");
+        }
+    } catch (error) {
+        console.error("Contact form error:", error);
+        alert("⚠️ Server error! Please try again later.");
+    }
 });
+
 
 
 
@@ -373,35 +375,4 @@ window.addEventListener("load", () => {
   });
 });
 
-// Connectivity Script 
-
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    let data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("mobile").value,
-        message: document.getElementById("message").value
-    };
-
-    try {
-        let res = await fetch("http://localhost:5000/contact", {   // 🔹 backend API
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-
-        let result = await res.json();
-        if(result.success){
-            alert("✅ Message sent successfully!");
-            document.getElementById("contactForm").reset();
-        } else {
-            alert("❌ Failed to send message, try again!");
-        }
-    } catch (error) {
-        console.error(error);
-        alert("⚠️ Server error!");
-    }
-});
 
