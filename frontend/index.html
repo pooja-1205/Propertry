@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Graph - Premium Real Estate Solutions</title>
+
+    <!-- CDN Links -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/style.css">
+
+
+</head>
+
+<body class="bg-gray-50 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar-sticky">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">
+                    Property Graph
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home"
+                        class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative">
+                        Home
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 hover:w-full"></span>
+                    </a>
+                    <a href="#services"
+                        class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative">
+                        Services
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 hover:w-full"></span>
+                    </a>
+                    <a href="#gallery"
+                        class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative">
+                        Gallery
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 hover:w-full"></span>
+                    </a>
+                    <a href="#about"
+                        class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative">
+                        About
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 hover:w-full"></span>
+                    </a>
+                    <a href="#contact"
+                        class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative">
+                        Contact
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 hover:w-full"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Gallery</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="gradient-hero min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-white opacity-10 rounded-full animate-bounce"></div>
+            <div class="absolute top-40 right-20 w-20 h-20 bg-green-400 opacity-20 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-32 left-1/4 w-16 h-16 bg-blue-300 opacity-15 rounded-full animate-ping"></div>
+            <div class="absolute bottom-20 right-10 w-24 h-24 bg-purple-300 opacity-10 rounded-full animate-bounce"
+                style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="hero-text" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Welcome to <br>
+                    <span class="text-green-400 animate-pulse">Property Graph</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Your Gateway to Premium Real Estate Solutions & Investment Opportunities
+                </p>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <button onclick="scrollToSection('services')"
+                        class="btn-hover bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full text-lg font-semibold mr-4 mb-4 inline-block">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore Properties
+                    </button>
+                    <button onclick="scrollToSection('contact')"
+                        class="btn-hover bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-800 px-10 py-4 rounded-full text-lg font-semibold inline-block">
+                        <i class="fas fa-phone mr-2"></i>
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developed Projects Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">Developed Projects</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">Showcasing our completed
+                    premium developments</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Project 1: Dongargaon -->
+                <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front gradient-primary text-white shadow-2xl">
+                            <div class="text-center">
+                                <i class="fas fa-building text-6xl mb-6 animate-pulse"></i>
+                                <h3 class="text-3xl font-bold mb-4">Dongargaon</h3>
+                                <p class="text-xl mb-2">Umred Road</p>
+                                <p class="text-lg opacity-90">Premium Residential Project</p>
+                                <div class="mt-6 flex justify-center space-x-4">
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">2-3 BHK</span>
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Modern</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-green-500 to-blue-600 text-white shadow-2xl">
+                            <div class="text-center">
+                                <h3 class="text-3xl font-bold mb-6">Dongargaon Project</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Modern residential complex with world-class amenities, strategic location on Umred
+                                    Road, and excellent connectivity to major city centers.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                        <i class="fas fa-home text-2xl mb-2"></i>
+                                        <p class="text-sm">Premium Units</p>
+                                    </div>
+                                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                        <i class="fas fa-car text-2xl mb-2"></i>
+                                        <p class="text-sm">Parking</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <button onclick="openModal('project1')"
+                                        class="btn-hover bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 w-full">
+                                        <i class="fas fa-info-circle mr-2"></i>
+                                        Know More
+                                    </button>
+                                    <button onclick="downloadBrochure('dongargaon')"
+                                        class="btn-hover bg-yellow-400 text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 w-full">
+                                        <i class="fas fa-download mr-2"></i>
+                                        Download Brochure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Green Valley Resort -->
+                <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gradient-to-br from-green-500 to-teal-600 text-white shadow-2xl">
+                            <div class="text-center">
+                                <i class="fas fa-tree text-6xl mb-6 animate-pulse"></i>
+                                <h3 class="text-3xl font-bold mb-4">Green Valley Resort</h3>
+                                <p class="text-xl mb-2">Luxury Farmhouse Project</p>
+                                <span
+                                    class="bg-yellow-400 text-green-800 px-4 py-2 rounded-full text-lg font-bold inline-block mt-4">
+                                    <i class="fas fa-check-circle mr-2"></i>
+                                    Completed
+                                </span>
+                                <div class="mt-6 flex justify-center space-x-4">
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Resort
+                                        Style</span>
+                                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Natural</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-purple-500 to-pink-600 text-white shadow-2xl">
+                            <div class="text-center">
+                                <h3 class="text-3xl font-bold mb-6">Green Valley Resort</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Exclusive farmhouse community with resort-style amenities, natural surroundings, and
+                                    luxury living experience.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                        <i class="fas fa-swimming-pool text-2xl mb-2"></i>
+                                        <p class="text-sm">Pool & Spa</p>
+                                    </div>
+                                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                        <i class="fas fa-leaf text-2xl mb-2"></i>
+                                        <p class="text-sm">Green Spaces</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <button onclick="openModal('project2')"
+                                        class="btn-hover bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 w-full">
+                                        <i class="fas fa-info-circle mr-2"></i>
+                                        Know More
+                                    </button>
+                                    <button onclick="downloadBrochure('greenvalley')"
+                                        class="btn-hover bg-yellow-400 text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 w-full">
+                                        <i class="fas fa-download mr-2"></i>
+                                        Download Brochure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Under Development Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">Under Development</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">Exciting projects coming soon
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card-3d gradient-card p-8 rounded-2xl shadow-lg text-center coming-soon" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="w-20 h-20 gradient-primary rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-hammer text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Luxury Villas</h3>
+                    <p class="text-gray-600 mb-6">Premium villa project with modern architecture and world-class
+                        amenities</p>
+                    <div class="space-y-4">
+                        <span
+                            class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold inline-block">
+                            <i class="fas fa-clock mr-2"></i>
+                            Coming Soon
+                        </span>
+                        <button onclick="downloadBrochure('luxuryvillas')"
+                            class="btn-hover bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-600 w-full">
+                            <i class="fas fa-download mr-2"></i>
+                            Download Brochure
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-3d gradient-card p-8 rounded-2xl shadow-lg text-center coming-soon" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-city text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Commercial Complex</h3>
+                    <p class="text-gray-600 mb-6">Modern commercial spaces designed for business growth and success</p>
+                    <div class="space-y-4">
+                        <span
+                            class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold inline-block">
+                            <i class="fas fa-clock mr-2"></i>
+                            Coming Soon
+                        </span>
+                        <button onclick="downloadBrochure('commercialcomplex')"
+                            class="btn-hover bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-600 w-full">
+                            <i class="fas fa-download mr-2"></i>
+                            Download Brochure
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-3d gradient-card p-8 rounded-2xl shadow-lg text-center coming-soon" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-home text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Smart Homes</h3>
+                    <p class="text-gray-600 mb-6">Technology-integrated living spaces for the future of residential life
+                    </p>
+                    <div class="space-y-4">
+                        <span
+                            class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold inline-block">
+                            <i class="fas fa-clock mr-2"></i>
+                            Coming Soon
+                        </span>
+                        <button onclick="downloadBrochure('smarthomes')"
+                            class="btn-hover bg-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-purple-600 w-full">
+                            <i class="fas fa-download mr-2"></i>
+                            Download Brochure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">Project Gallery</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">Explore our completed and
+                    ongoing developments</p>
+            </div>
+
+            <!-- Gallery Filter Tabs -->
+            <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-100 p-2 rounded-full">
+                    <button onclick="filterGallery('all')"
+                        class="gallery-filter-btn active px-6 py-3 rounded-full font-semibold transition-all duration-300">All
+                        Projects</button>
+                    <button onclick="filterGallery('completed')"
+                        class="gallery-filter-btn px-6 py-3 rounded-full font-semibold transition-all duration-300">Completed</button>
+                    <button onclick="filterGallery('ongoing')"
+                        class="gallery-filter-btn px-6 py-3 rounded-full font-semibold transition-all duration-300">Ongoing</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Dongargaon Project Images -->
+                <div class="gallery-item completed" data-category="completed" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('dongargaon1')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-building text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Dongargaon Project</h3>
+                                <p class="text-lg">Main Building View</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item completed" data-category="completed" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('dongargaon2')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-home text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Dongargaon Project</h3>
+                                <p class="text-lg">Interior Design</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Valley Resort Images -->
+                <div class="gallery-item completed" data-category="completed" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('greenvalley1')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-tree text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Green Valley Resort</h3>
+                                <p class="text-lg">Resort Overview</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item completed" data-category="completed" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('greenvalley2')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-swimming-pool text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Green Valley Resort</h3>
+                                <p class="text-lg">Pool & Amenities</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ongoing Projects -->
+                <div class="gallery-item ongoing" data-category="ongoing" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('luxury1')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-hammer text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Luxury Villas</h3>
+                                <p class="text-lg">Construction Progress</p>
+                                <span
+                                    class="bg-yellow-400 text-gray-800 px-3 py-1 rounded-full text-sm font-bold mt-2 inline-block">Under
+                                    Construction</span>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item ongoing" data-category="ongoing" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                        onclick="openImageModal('commercial1')">
+                        <div
+                            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-city text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Commercial Complex</h3>
+                                <p class="text-lg">Architectural Design</p>
+                                <span
+                                    class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm font-bold mt-2 inline-block">Planning
+                                    Phase</span>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">Our Services</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">Comprehensive real estate
+                    solutions for all your needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="service-icon w-24 h-24 bg-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-home text-blue-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Property Buying</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert guidance and support throughout your property
+                        purchase journey with transparent processes</p>
+                </div>
+
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="service-icon w-24 h-24 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-handshake text-green-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Property Selling</h3>
+                    <p class="text-gray-600 leading-relaxed">Maximize your property value with our strategic marketing
+                        and negotiation expertise</p>
+                </div>
+
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="service-icon w-24 h-24 bg-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-tree text-purple-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Farmhouse Projects</h3>
+                    <p class="text-gray-600 leading-relaxed">Luxury farmhouse developments that blend modern amenities
+                        with natural beauty</p>
+                </div>
+
+                <div class="text-center p-8" data-aos="fade-up" data-aos-delay="500">
+                    <div
+                        class="service-icon w-24 h-24 bg-yellow-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-yellow-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Investment Guidance</h3>
+                    <p class="text-gray-600 leading-relaxed">Smart investment strategies and market insights for
+                        profitable real estate decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">About Property
+                        Graph</h2>
+                    <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">Building dreams, creating
+                        value, transforming communities</p>
+                </div>
+
+                <div class="gradient-card p-12 rounded-3xl shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-12">
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                            Property Graph is a leading real estate company dedicated to transforming the way people
+                            buy, sell, and invest in properties. With years of experience and a commitment to
+                            excellence, we provide comprehensive real estate solutions that exceed expectations.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="text-center md:text-left" data-aos="fade-right" data-aos-delay="300">
+                            <div
+                                class="w-16 h-16 gradient-primary rounded-full mx-auto md:mx-0 mb-6 flex items-center justify-center">
+                                <i class="fas fa-eye text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-6 text-blue-600">Our Vision</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                To be the most trusted name in real estate, creating sustainable value for our clients
+                                through innovative solutions, exceptional service, and unwavering commitment to quality.
+                            </p>
+                        </div>
+
+                        <div class="text-center md:text-left" data-aos="fade-left" data-aos-delay="400">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full mx-auto md:mx-0 mb-6 flex items-center justify-center">
+                                <i class="fas fa-bullseye text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-6 text-green-600">Our Mission</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                To provide transparent, reliable, and customer-centric real estate services that build
+                                lasting relationships and contribute to community development and growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-aos="fade-up">Contact Us</h2>
+            <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                Get in touch with our expert team
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <div class="gradient-card p-12 rounded-3xl shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                <!-- ✅ Removed old onsubmit -->
+                <form id="contactForm" class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-3 text-lg">Full Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-lg"
+                                placeholder="Enter your full name" required />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-3 text-lg">Email Address</label>
+                            <input type="email" id="email"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-lg"
+                                placeholder="Enter your email" required />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-3 text-lg">Mobile Number</label>
+                        <input type="tel" id="mobile"
+                            class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-lg"
+                            placeholder="Enter your mobile number" required />
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-3 text-lg">Message</label>
+                        <textarea id="message" rows="6"
+                            class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-lg resize-none"
+                            placeholder="Tell us about your requirements..." required></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit"
+                            class="btn-hover gradient-primary text-white px-12 py-4 rounded-xl text-xl font-semibold inline-flex items-center">
+                            <i class="fas fa-paper-plane mr-3"></i>
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="gradient-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-3xl font-bold mb-6">Property Graph</h3>
+                    <p class="text-gray-200 leading-relaxed mb-6">
+                        Your trusted partner in real estate excellence, building dreams and creating lasting value for
+                        communities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61576606281878&mibextid=ZbWKwL" target="_blank"
+                            class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/property_graph_?igsh=MWJjaGV1MHltNXNpNw%3D%3D&utm_source=qr"
+                            target="_blank"
+                            class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <!-- <a href="https://www.youtube.com/@propertygraph" target="_blank"
+                            class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a> -->
+                        <!-- <a href="https://www.linkedin.com/company/propertygraph" target="_blank"
+                            class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a> -->
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+                    <div class="space-y-3">
+                        <a href="#home"
+                            class="block text-gray-200 hover:text-white transition-colors duration-300">Home</a>
+                        <a href="#services"
+                            class="block text-gray-200 hover:text-white transition-colors duration-300">Services</a>
+                        <a href="#gallery"
+                            class="block text-gray-200 hover:text-white transition-colors duration-300">Gallery</a>
+                        <a href="#about"
+                            class="block text-gray-200 hover:text-white transition-colors duration-300">About</a>
+                        <a href="#contact"
+                            class="block text-gray-200 hover:text-white transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-semibold mb-6">Services</h4>
+                    <div class="space-y-3">
+                        <p class="text-gray-200">Property Buying</p>
+                        <p class="text-gray-200">Property Selling</p>
+                        <p class="text-gray-200">Farmhouse Projects</p>
+                        <p class="text-gray-200">Investment Guidance</p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
+                    <div class="space-y-3">
+                        <p class="text-gray-200 flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            +91 XXXXXXXXXX
+                        </p>
+                        <p class="text-gray-200 flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            info@propertygraph.com
+                        </p>
+                        <p class="text-gray-200 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Nagpur, Maharashtra
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white border-opacity-20 pt-8 text-center">
+                <p class="text-gray-200" data-aos="fade-up">
+                    &copy; 2024 Property Graph. All rights reserved. | Designed with ❤️ for excellence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+917415506461?text=Hello! I'm interested in your real estate services." target="_blank"
+        class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Project Modals -->
+    <div id="project1Modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-bold text-gray-800">Dongargaon, Umred Road</h3>
+                <button onclick="closeModal('project1')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mb-6">
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    A premium residential project strategically located on Umred Road in Dongargaon. This modern
+                    development features contemporary architecture, world-class amenities, and excellent connectivity to
+                    major city centers.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="text-center p-4 bg-blue-50 rounded-xl">
+                        <i class="fas fa-home text-blue-600 text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-gray-800">2-3 BHK Units</h4>
+                        <p class="text-sm text-gray-600">Spacious layouts</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-xl">
+                        <i class="fas fa-car text-green-600 text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-gray-800">Parking Available</h4>
+                        <p class="text-sm text-gray-600">Covered parking</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                    <h4 class="font-bold text-lg mb-3">Key Features:</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Modern architecture and design</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>24/7 security and surveillance</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Landscaped gardens and open spaces</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Excellent connectivity to city center</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button onclick="scrollToSection('contact'); closeModal('project1')"
+                class="w-full gradient-primary text-white py-3 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity">
+                <i class="fas fa-phone mr-2"></i>
+                Contact for Details
+            </button>
+        </div>
+    </div>
+
+    <div id="project2Modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-bold text-gray-800">Green Valley Resort</h3>
+                <button onclick="closeModal('project2')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mb-6">
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    A completed luxury farmhouse project offering resort-style living with natural surroundings. This
+                    exclusive community features premium amenities, recreational facilities, and a perfect blend of
+                    luxury and nature.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="text-center p-4 bg-green-50 rounded-xl">
+                        <i class="fas fa-tree text-green-600 text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-gray-800">Natural Setting</h4>
+                        <p class="text-sm text-gray-600">Lush greenery</p>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-xl">
+                        <i class="fas fa-swimming-pool text-purple-600 text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-gray-800">Resort Amenities</h4>
+                        <p class="text-sm text-gray-600">Pool & spa</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                    <h4 class="font-bold text-lg mb-3">Luxury Features:</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Private gardens for each unit</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Swimming pool and spa facilities</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Recreational and sports facilities</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>24/7 maintenance and security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button onclick="scrollToSection('contact'); closeModal('project2')"
+                class="w-full bg-gradient-to-r from-green-500 to-teal-600 text-white py-3 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity">
+                <i class="fas fa-eye mr-2"></i>
+                View Available Units
+            </button>
+        </div>
+    </div>
+
+    <!-- Image Modals for Gallery -->
+    <div id="imageModal" class="image-modal">
+        <div class="image-modal-content">
+            <div class="relative">
+                <button onclick="closeImageModal()"
+                    class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70 transition-all z-10">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="modalImageContent"
+                    class="bg-gradient-to-br from-blue-500 to-purple-600 aspect-w-16 aspect-h-12 flex items-center justify-center text-white p-12">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./JavaScript/script.js"></script>
+
+    <!-- SMTP jS -->
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "nandguruwarpooja@gmail.com",
+                Password: "Pooja@Pooja2",
+                To: 'poojarnandguruwar@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New Contact Form Enquiry",
+                Body: "Name: " + document.getElementById("name").value
+                    + "<br> Email: " + document.getElementById("email").value
+                    + "<br> Mobile: " + document.getElementById("mobile").value
+                    + "<br> Message: " + document.getElementById("message").value
+            }).then(
+                message => alert("Message Sent Sccesfully")
+            );
+        }
+   
+    </script> -->
+
+    <script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    let data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("mobile").value,
+        message: document.getElementById("message").value
+    };
+
+    try {
+        let res = await fetch("http://localhost:5000/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        let result = await res.json();
+        if (result.success) {
+            alert("✅ Message sent successfully!");
+            document.getElementById("contactForm").reset();
+        } else {
+            alert("❌ Failed to send message, try again!");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("⚠️ Server error!");
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9734335bb64355fe',t:'MTc1NTg4NDkwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
