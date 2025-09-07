@@ -1,0 +1,97 @@
+let currentImages = [];
+let currentIndex = 0;
+
+function openImageModal(imageId) {
+  const modal = document.getElementById("imageModal");
+  const content = document.getElementById("modalImageContent");
+
+  const imageData = {
+    dongargaon1: {
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+      title: "Dongargaon Project - Main Building",
+      description: "Modern residential complex with contemporary architecture and premium amenities. Located on Umred Road with excellent connectivity.",
+    },
+    dongargaon2: {
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80",
+      title: "Dongargaon Project - Interior Design",
+      description: "Spacious 2-3 BHK apartments with modern interiors, premium fittings, and thoughtful space planning for comfortable living.",
+    },
+    greenvalley1: {
+      image: ["./assets/b.jpeg", "./assets/a.jpeg"], // multiple images
+      title: "Green Valley Resort - Resort Overview",
+      description: "Luxury farmhouse project with resort-style amenities, natural surroundings, and exclusive community living experience.",
+    },
+    greenvalley2: {
+      image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+      title: "Green Valley Resort - Pool & Amenities",
+      description: "Premium recreational facilities including swimming pool, spa, sports facilities, and landscaped gardens for resort-style living.",
+    },
+    luxury1: {
+      image:
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      title: "Luxury Villas - Construction Progress",
+      description:
+        "Ultra-luxury villa project under development with modern architecture, private gardens, and world-class amenities.",
+    },
+    commercial1: {
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      title: "Commercial Complex - Architectural Design",
+      description:
+        "Modern commercial development in planning phase, designed for business growth with premium office and retail spaces.",
+    },
+  };
+
+  const data = imageData[imageId];
+
+  if (!data) return;
+
+  // If multiple images → store them
+  currentImages = Array.isArray(data.image) ? data.image : [data.image];
+  currentIndex = 0;
+
+  // Render modal content
+  renderModalContent(data);
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function renderModalContent(data) {
+  const content = document.getElementById("modalImageContent");
+
+  content.className = "relative w-full h-full bg-black flex items-center justify-center";
+
+  content.innerHTML = `
+    <img src="${currentImages[currentIndex]}" alt="${data.title}" 
+      class="max-w-full max-h-full object-contain rounded-lg">
+    
+    <!-- Overlay info -->
+    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+      <h3 class="text-white text-xl font-bold mb-2">${data.title}</h3>
+      <p class="text-gray-200 text-sm">${data.description}</p>
+    </div>
+
+    <!-- Prev Button -->
+    <button onclick="prevImage('${data.title}','${data.description}')" 
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black rounded-full p-3">
+      ‹
+    </button>
+
+    <!-- Next Button -->
+    <button onclick="nextImage('${data.title}','${data.description}')" 
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black rounded-full p-3">
+      ›
+    </button>
+  `;
+}
+
+function prevImage(title, description) {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  renderModalContent({ image: currentImages, title, description });
+}
+
+function nextImage(title, description) {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  renderModalContent({ image: currentImages, title, description });
+}

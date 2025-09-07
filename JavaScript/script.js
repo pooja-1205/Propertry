@@ -77,47 +77,46 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
 });
 
 // Contact Form Submission → Backend API
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Collect form data
     const data = {
-        name: document.getElementById("name").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        phone: document.getElementById("mobile").value.trim(),
-        message: document.getElementById("message").value.trim(),
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("mobile").value.trim(),
+      message: document.getElementById("message").value.trim(),
     };
 
     // Simple validation
     if (!data.name || !data.email || !data.phone || !data.message) {
-        alert("⚠️ Please fill all fields.");
-        return;
+      alert("⚠️ Please fill all fields.");
+      return;
     }
 
     try {
-        // Send data to backend API
-        const res = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        });
+      // Send data to backend API
+      const res = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-        const result = await res.json();
+      const result = await res.json();
 
-        if (result.success) {
-            alert("✅ Message sent successfully!");
-            document.getElementById("contactForm").reset();
-        } else {
-            alert("❌ Failed to send message. Please try again!");
-        }
+      if (result.success) {
+        alert("✅ Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("❌ Failed to send message. Please try again!");
+      }
     } catch (error) {
-        console.error("Contact form error:", error);
-        alert("⚠️ Server error! Please try again later.");
+      console.error("Contact form error:", error);
+      alert("⚠️ Server error! Please try again later.");
     }
-});
-
-
-
+  });
 
 // Modal functions
 function openModal(modalId) {
@@ -208,7 +207,10 @@ function filterGallery(category) {
   });
 }
 
-// Image modal functions
+let currentImages = [];
+let currentIndex = 0;
+let currentData = null;
+
 function openImageModal(imageId) {
   const modal = document.getElementById("imageModal");
   const content = document.getElementById("modalImageContent");
@@ -216,28 +218,27 @@ function openImageModal(imageId) {
   const imageData = {
     dongargaon1: {
       image:
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
       title: "Dongargaon Project - Main Building",
       description:
         "Modern residential complex with contemporary architecture and premium amenities. Located on Umred Road with excellent connectivity.",
     },
     dongargaon2: {
       image:
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80",
       title: "Dongargaon Project - Interior Design",
       description:
         "Spacious 2-3 BHK apartments with modern interiors, premium fittings, and thoughtful space planning for comfortable living.",
     },
     greenvalley1: {
-      image:
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: ["./assets/b.jpeg", "./assets/a.jpeg"],
       title: "Green Valley Resort - Resort Overview",
       description:
         "Luxury farmhouse project with resort-style amenities, natural surroundings, and exclusive community living experience.",
     },
     greenvalley2: {
       image:
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
       title: "Green Valley Resort - Pool & Amenities",
       description:
         "Premium recreational facilities including swimming pool, spa, sports facilities, and landscaped gardens for resort-style living.",
@@ -259,31 +260,68 @@ function openImageModal(imageId) {
   };
 
   const data = imageData[imageId];
-  if (data) {
-    content.className =
-      "relative w-full h-full bg-black flex items-center justify-center";
-    content.innerHTML = `
-                    <img src="${data.image}" 
-                         alt="${data.title}" 
-                         class="max-w-full max-h-full object-contain rounded-lg"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white p-8">
-                        <div class="text-center max-w-2xl">
-                            <i class="fas fa-image text-6xl mb-4 opacity-50"></i>
-                            <h2 class="text-3xl font-bold mb-4">${data.title}</h2>
-                            <p class="text-lg leading-relaxed opacity-80">${data.description}</p>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                        <h3 class="text-white text-xl font-bold mb-2">${data.title}</h3>
-                        <p class="text-gray-200 text-sm">${data.description}</p>
-                    </div>
-                `;
-  }
+  if (!data) return;
 
-  modal.classList.add("active");
+  // store globally
+  currentData = data;
+  currentImages = Array.isArray(data.image) ? data.image : [data.image];
+  currentIndex = 0;
+
+  renderModalContent();
+
+  modal.classList.remove("hidden"); // show modal
   document.body.style.overflow = "hidden";
 }
+
+function renderModalContent() {
+  const content = document.getElementById("modalImageContent");
+  const imgSrc = currentImages[currentIndex];
+
+  content.innerHTML = `
+    <img src="${imgSrc}" alt="${currentData.title}" 
+      class="max-w-full max-h-full object-contain rounded-lg">
+
+    <!-- Overlay info -->
+    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+      <h3 class="text-white text-xl font-bold mb-2">${currentData.title}</h3>
+      <p class="text-gray-200 text-sm">${currentData.description}</p>
+    </div>
+
+    <!-- Prev Button -->
+    ${
+      currentImages.length > 1
+        ? `
+      <button onclick="prevImage()" 
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black rounded-full p-3">
+        ‹
+      </button>
+
+      <!-- Next Button -->
+      <button onclick="nextImage()" 
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black rounded-full p-3">
+        ›
+      </button>
+    `
+        : ""
+    }
+  `;
+}
+
+function prevImage() {
+  currentIndex =
+    (currentIndex - 1 + currentImages.length) % currentImages.length;
+  renderModalContent();
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  renderModalContent();
+}
+
+// function closeImageModal() {
+//   document.getElementById("imageModal").classList.add("hidden");
+//   document.body.style.overflow = "auto";
+// }
 
 function closeImageModal() {
   const modal = document.getElementById("imageModal");
@@ -298,7 +336,6 @@ document.getElementById("imageModal").addEventListener("click", function (e) {
   }
 });
 
-
 // Brochure download function
 function downloadBrochure(projectName) {
   // Map project names to actual PDF file paths
@@ -307,7 +344,7 @@ function downloadBrochure(projectName) {
     commercialcomplex: "./assets/paccex.pdf",
     smarthomes: "./assets/paccex.pdf",
     dongargaon: "./assets/paccex.pdf",
-    greenvalley: "./assets/paccex.pdf",
+    greenvalley: "./assets/GreenValley.pdf",
   };
 
   const fileUrl = brochureFiles[projectName];
@@ -374,5 +411,3 @@ window.addEventListener("load", () => {
     ease: "power2.out",
   });
 });
-
-
